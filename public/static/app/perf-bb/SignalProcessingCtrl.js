@@ -8,7 +8,7 @@ mciModule.controller('SignalProcessingCtrl', function(
   var getCol
 
   // TODO later this might be replaced with some sort of pagination
-  var LIMIT = 500
+  var LIMIT = 2000
 
   vm.mode = {
     options: [{
@@ -36,6 +36,8 @@ mciModule.controller('SignalProcessingCtrl', function(
       create_time: '>' + moment().subtract(2, 'weeks').format(FORMAT.ISO_DATE),
       probability: '>0.05',
       project: '=' + $window.project,
+      // Filter out canaries and WT variants (EVG-5611)
+      variant: '^((?!wtdevelop|canary_|fio_|NetworkBandwidth).)*$'
     },
     mode: vm.mode.value,
   }
