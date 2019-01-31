@@ -297,6 +297,7 @@ h3.section-heading {
 .started {
   background-color: #ffb618;
 }
+.system-unresponsive,
 .system-failed {
   background-color: #800080;
   color: white;
